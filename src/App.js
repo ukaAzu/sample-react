@@ -1,12 +1,10 @@
 import './App.css';
 
-function App() {
-  const msg = "これはサンプルのメッセージです"
+function App(props) {
   return (
     <div className="App">
-      <h1>React sample</h1>
-      <p>This is sample application.</p>
-      <div>{msg}</div>
+      <h1>{props.title}</h1>
+      <p>{props.message}</p>
     </div>
   );
 }
