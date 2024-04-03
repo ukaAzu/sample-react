@@ -1,9 +1,10 @@
 import './App.css';
+import { useState } from 'react';
 
 function App(props) {
-  var counter = 0
+  const [counter, setCounter] = useState(0)
   const doClick = () => {
-    counter++
+    setCounter(counter + 1)
   }
   return (
     <div className="App">
