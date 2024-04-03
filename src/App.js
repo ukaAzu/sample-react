@@ -1,42 +1,34 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 
-function App(props) {
-  var [count, setCount] = useState(0)
-  var [data, setData] = useState([
-    {
-      position: "absolute",
-      left: "0px",
-      top: "0px",
-      width: "100%",
-      height: "100%",
-      backgroundColor: "#fff0",
-    }
-  ])
+function Message(props) {
+  return (
+    <p className='ClassA'>{props.message}</p>
+  )
+}
 
-  const doClick = (event) => {
-    const ob = {
-      position: "absolute",
-      left: (event.pageX - 50) + "px",
-      top: (event.pageY - 50) + "px",
-      width: "100px",
-      height: "100px",
-      backgroundColor: "#ff000066",
-      borderRadius: "50%"
-    }
-    data.push(ob)
-    setCount(count + 1)
-  }
+function Data(props) {
+  return (
+    <ul>
+      {props.data.map((item, key) => {
+        return (<li key={key}>{item.name}</li>)
+      })}
+    </ul>
+  )
+}
+
+function App(props) {
+  const data = [
+    { name: "Taro" },
+    { name: "Hanako" },
+    { name: "Sachiko" },
+  ]
 
   return (
     <div className="App">
-      <h1>{props.title}</h1>
-      <p>{count} objects</p>
-      <div onClick={doClick}>
-        {data.map((item, key) => {
-          return (<div style={item} key={key}></div>)
-        })}
-      </div>
+      <h1 className="ClassB">{props.title}</h1>
+      <Message message="This is sample message" />
+      <Data data={data} />
     </div>
   );
 }
